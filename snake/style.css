@@ -1,0 +1,17 @@
+.snake{
+    display: flex;
+    justify-content: center;
+}
+
+.score{
+    display: flex;
+    justify-content: center;
+    font-size: 3rem;
+}
+
+.restart{
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+
+}
