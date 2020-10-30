@@ -131,6 +131,7 @@ function game(){
 
 }
 
+//lorsque l'utilisateur appuie sur une touche
 function keyPush(evt){
     if(music === 0){
         snake_audio.play();
