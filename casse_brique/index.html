@@ -20,12 +20,12 @@ var y = canvas.height-30;
 var dx = 2;
 var dy = -2;
 var paddleHeight = 10;
-var paddleWidth = 75;
+var paddleWidth = 100;
 var paddleX = (canvas.width-paddleWidth)/2;
 var rightPressed = false;
 var leftPressed = false;
-var brickRowCount = 9;
-var brickColumnCount = 9;
+var brickRowCount = 6;
+var brickColumnCount = 6;
 var brickWidth= 75;
 var brickHeight =20;
 var brickPadding = 10;
@@ -33,6 +33,8 @@ var brickOffsetTop = 30;
 var brickOffsetLeft = 30;
 var brickX =(c*(brickWidth+brickPadding))+brickOffsetLeft;
 var brickY = (r*brickHeight+brickPadding)+brickOffsetTop;
+var score = 0;
+
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 
@@ -42,6 +44,12 @@ for(var c=0; c<brickColumnCount; c++){
     for( var r=0; r<brickRowCount; r++){
         bricks[c][r] = { x: 0, y: 0, status: 1 };
     }
+}
+
+function drawScore(){
+    ctx.font = "16px Arial";
+    ctx.fillStyle = "#0095DD";
+    ctx.fillText("Score :" + score, 8,20);
 }
 
 function drawBricks() {
@@ -131,10 +139,10 @@ function draw() {
     }
     
     if(rightPressed && paddleX < canvas.width-paddleWidth) {
-        paddleX += 7;
+        paddleX += 2;
     }
     else if(leftPressed && paddleX > 0) {
-        paddleX -= 7;
+        paddleX -= 2;
     }
     
     x += dx;
