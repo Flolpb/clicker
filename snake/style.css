@@ -1,6 +1,29 @@
 .snake{
     display: flex;
     justify-content: center;
+    border: solid lime 2px;
+    width: 800px;
+    margin:auto;
+}
+
+.back{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+}
+
+.back a{
+    text-decoration: none;
+    color: black;
+    background: lime;
+    padding:0.5rem;
+    border-radius: 10%;
+    transition: color 0.5s;
+}
+
+.back a:hover{
+    color:white;
+    transition: 0.5s;
 }
 
 .score{

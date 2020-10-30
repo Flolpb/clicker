@@ -10,6 +10,7 @@ window.onload=function() {
     score = document.getElementById("score");
     start = document.getElementById("restart");
     document.addEventListener("keydown", keyPush);
+
     setInterval(game, timeout);
     live = true;
 };
@@ -18,6 +19,7 @@ window.onload=function() {
 let px = 10;
 let py = 10;
 
+let snake_audio = new Audio('sound/snake-iii-java-game-theme-song.mp3');
 
 let gs = 20;
 let tc = 40;
@@ -31,6 +33,9 @@ let xv=0;
 let yv=0;
 let trail = [];
 let tail = 5;
+let nope = 0;
+
+let music = 0;
 
 function restart(){
     live = true;
@@ -42,7 +47,7 @@ function restart(){
     ax = Math.floor(Math.random() * tc);
     ay = Math.floor(Math.random() * tc);
 
-
+    nope = 0;
     xv=yv=0;
     trail = [];
     tail = 5;
@@ -116,12 +121,21 @@ function game(){
         ctx.fillRect(ax*gs,ay*gs,gs-2, gs-2);
     }else{
         start.style.display = 'block';
+        if(nope === 0 ){
+            let nope_audio = new Audio('sound/nope-bruitage.mp3');
+            nope_audio.play();
+            nope++;
+        }
     }
 
 
 }
 
 function keyPush(evt){
+    if(music === 0){
+        snake_audio.play();
+        music++;
+    }
     switch (evt.code) {
         case "ArrowLeft":
             xv=-1; yv=0;
