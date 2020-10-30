@@ -19,7 +19,6 @@ window.onload=function() {
 let px = 10;
 let py = 10;
 
-let snake_audio = new Audio('sound/snake-iii-java-game-theme-song.mp3');
 
 let gs = 20;
 let tc = 40;
@@ -35,7 +34,6 @@ let trail = [];
 let tail = 5;
 let nope = 0;
 
-let music = 0;
 
 function restart(){
     live = true;
@@ -118,7 +116,9 @@ function game(){
 
 
         ctx.fillStyle="red";
-        ctx.fillRect(ax*gs,ay*gs,gs-2, gs-2);
+        const pomme = new Image();
+        pomme.src='image/pomme.png';
+        ctx.drawImage(pomme,ax*gs,ay*gs,gs-2, gs-2);
     }else{
         start.style.display = 'block';
         if(nope === 0 ){
@@ -133,10 +133,6 @@ function game(){
 
 //lorsque l'utilisateur appuie sur une touche
 function keyPush(evt){
-    if(music === 0){
-        snake_audio.play();
-        music++;
-    }
     switch (evt.code) {
         case "ArrowLeft":
             xv=-1; yv=0;
